@@ -39,11 +39,6 @@ O **Meus Momentos** é um aplicativo mobile desenvolvido em Flutter que permite 
 - **`intl`**: Formatação de data e hora (`dd/MM/yyyy HH:mm`).
 - **`share_plus`**: Compartilhamento nativo de imagens e textos com outros apps.
 
----
-
-## Baixar o Aplicativo (.APK)
-
-Você pode baixar a versão compilada para Android 
 
 ---
 
