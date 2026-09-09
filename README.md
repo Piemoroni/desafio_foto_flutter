@@ -192,7 +192,3 @@ lib/
 └── main.dart                 # Ponto de entrada da aplicação
 
 ```
-
-```
-
-```
