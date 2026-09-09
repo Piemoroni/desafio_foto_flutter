@@ -75,15 +75,7 @@ flutter pub get
 
 ```
 
-
-4. **Verificar os dispositivos conectados:**
-```bash
-flutter devices
-
-```
-
-
-5. **Executar a aplicação:**
+4. **Executar a aplicação:**
 ```bash
 flutter run
 
