@@ -49,14 +49,10 @@ class _HomeState extends State<Home> {
       String caminhoFinal = pickedImage.path;
 
       if (!kIsWeb) {
-        try {
-          final appDir = await getApplicationDocumentsDirectory();
-          final fileName = 'foto_${DateTime.now().millisecondsSinceEpoch}.jpg';
-          final localImage = await File(pickedImage.path).copy('${appDir.path}/$fileName');
-          caminhoFinal = localImage.path;
-        } catch (e) {
-          debugPrint('Falha ao usar path_provider: $e');
-        }
+        final appDir = await getApplicationDocumentsDirectory();
+        final fileName = 'foto_${DateTime.now().millisecondsSinceEpoch}.jpg';
+        final savedImage = await File(pickedImage.path).copy('${appDir.path}/$fileName');
+        caminhoFinal = savedImage.path;
       }
 
       if (!mounted) return;
@@ -123,6 +119,19 @@ class _HomeState extends State<Home> {
     await arquivoService.salvarMomentos(momentos);
   }
 
+  Future<void> sairEApagarDados() async {
+    await arquivoService.limparDados();
+    setState(() {
+      momentos.clear();
+    });
+    if (!mounted) return;
+    Navigator.pop(context);
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => const Splash()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -165,8 +174,8 @@ class _HomeState extends State<Home> {
               onTap: () => Navigator.pop(context),
             ),
             ListTile(
-              leading: const Icon(Icons.exit_to_app),
-              title: const Text('Sair'),
+              leading: const Icon(Icons.splitscreen),
+              title: const Text('Splash'),
               onTap: () {
                 Navigator.pop(context);
                 Navigator.pushReplacement(
@@ -174,6 +183,11 @@ class _HomeState extends State<Home> {
                   MaterialPageRoute(builder: (context) => const Splash()),
                 );
               },
+            ),
+            ListTile(
+              leading: const Icon(Icons.exit_to_app, color: Colors.black),
+              title: const Text('Sair'),
+              onTap: sairEApagarDados,
             ),
           ],
         ),

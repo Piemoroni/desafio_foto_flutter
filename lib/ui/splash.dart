@@ -26,6 +26,16 @@ class _SplashState extends State<Splash> with SingleTickerProviderStateMixin {
     );
 
     _controller.forward();
+
+    _controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        if (!mounted) return;
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const Home()),
+        );
+      }
+    });
   }
 
   @override
@@ -34,36 +44,19 @@ class _SplashState extends State<Splash> with SingleTickerProviderStateMixin {
     super.dispose();
   }
 
-  void _irParaHome() {
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => const Home()),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: FadeTransition(
           opacity: _animation,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                width: 120,
-                height: 120,
-                child: Image.asset(
-                  'assets/icone.png',
-                  fit: BoxFit.contain,
-                ),
-              ),
-              const SizedBox(height: 40),
-              ElevatedButton(
-                onPressed: _irParaHome,
-                child: const Text('Entrar'),
-              ),
-            ],
+          child: SizedBox(
+            width: 140,
+            height: 140,
+            child: Image.asset(
+              'assets/icone.png',
+              fit: BoxFit.contain,
+            ),
           ),
         ),
       ),
