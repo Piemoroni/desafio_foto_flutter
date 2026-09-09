@@ -56,26 +56,14 @@ Você pode baixar a versão compilada para Android
 
 ### **Passos para Instalação:**
 
-1. **Clonar o repositório:**
-   ```bash
-   git clone [https://github.com/SEU_USUARIO/meus_momentos.git](https://github.com/SEU_USUARIO/meus_momentos.git)
 
-```
-
-2. **Acessar o diretório do projeto:**
-```bash
-cd meus_momentos
-
-```
-
-
-3. **Instalar todas as dependências:**
+1. **Instalar todas as dependências:**
 ```bash
 flutter pub get
 
 ```
 
-4. **Executar a aplicação:**
+2. **Executar a aplicação:**
 ```bash
 flutter run
 
