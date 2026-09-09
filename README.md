@@ -58,7 +58,7 @@ Você pode baixar a versão compilada para Android
 
 1. **Clonar o repositório:**
    ```bash
-   git clone [https://github.com/SEU_USUARIO/meus_momentos.git](https://github.com/SEU_USUARIO/meus_momentos.git)
+git clone [https://github.com/SEU_USUARIO/meus_momentos.git](https://github.com/SEU_USUARIO/meus_momentos.git)
 
 ```
 
